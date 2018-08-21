@@ -34,6 +34,10 @@ public class HelloLibrary {
 	public HelloLibrary(PApplet theParent) {
 		myParent = theParent;
 		welcome();
+		
+		myParent.registerMethod("pre", this);
+		myParent.registerMethod("draw", this);
+	    myParent.registerMethod("post", this);
 	}
 	
 	
@@ -71,6 +75,18 @@ public class HelloLibrary {
 	 */
 	public int getVariable() {
 		return myVariable;
+	}
+	
+	public void pre() {
+		System.out.println("PRE "+System.currentTimeMillis());
+	}
+	
+	public void draw() {
+		
+	}
+	
+	public void post() {
+		System.out.println("POST "+System.currentTimeMillis());
 	}
 }
 

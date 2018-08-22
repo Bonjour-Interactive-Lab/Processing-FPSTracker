@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>470</x>
-      <y>360</y>
+      <x>515</x>
+      <y>370</y>
       <w>130</w>
       <h>40</h>
     </coordinates>
@@ -19,27 +19,29 @@ Package :: fpstracker.core
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
-      <y>145</y>
-      <w>180</w>
-      <h>180</h>
+      <x>500</x>
+      <y>135</y>
+      <w>305</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/BaseSampler/
 Package :: fpstracker.core
 --
 parent : PApplet
 samplingSize : int
-sampleList : List&lt;int&gt;
-minSample : int
-maxSample : int
-lastSample : int
+sampleList : List&lt;Object&gt;
+minSample : Object
+maxSample : Object
+lastSample : Object
 play : boolean
 --
-BaseSampler(parent : PApplet, samplingSize : int) : void
+BaseSampler(parent : PApplet, samplingSize : int, type : TrackerType) : void
 play() : void
 pause() : void
 startSampling(sample : int) : void
 endSampling(sample : int) : void
+startSampling(sample : float) : void
+endSampling(sample : float) : void
 setSamplingSize(samplingSize : int) : void
 getSamplingSize() : int
 getSampleList() : List&lt;int&gt;
@@ -53,8 +55,8 @@ toString() : String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>605</x>
-      <y>360</y>
+      <x>650</x>
+      <y>370</y>
       <w>130</w>
       <h>80</h>
     </coordinates>
@@ -73,8 +75,8 @@ getFreeMemory() : int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>535</x>
-      <y>320</y>
+      <x>580</x>
+      <y>330</y>
       <w>15</w>
       <h>50</h>
     </coordinates>
@@ -84,8 +86,8 @@ getFreeMemory() : int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>665</x>
-      <y>320</y>
+      <x>710</x>
+      <y>330</y>
       <w>15</w>
       <h>50</h>
     </coordinates>
@@ -95,26 +97,29 @@ getFreeMemory() : int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>255</x>
-      <y>180</y>
+      <x>300</x>
+      <y>135</y>
       <w>105</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>TrackerType : enum
 Package :: fpstracker.core
 --
-FPS : String
-MILLIS : String
-MEMORY : String</panel_attributes>
+FPS
+MILLIS
+MEMORY
+CUSTOM
+INT
+FLOAT</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>345</y>
+      <x>145</x>
+      <y>435</y>
       <w>245</w>
-      <h>410</h>
+      <h>315</h>
     </coordinates>
     <panel_attributes>Tracker
 Package :: fpstracker.core
@@ -134,12 +139,6 @@ Tracker(parent : PApplet, samplingSize : int) : void
 pre() : void
 draw() : void
 mouseEvent() : void
-play() : void
-pause() : void
-startSampling(sample : int) : void
-endSampling(sample : int) : void
-computePanels() : void
-displayPanels(canvas : PGraphics, x : int, y : int) : void
 displayNextPanel() : void
 displayPreviousPanel() : void
 startFPSSampling(sample : int) : void
@@ -151,51 +150,23 @@ endMemorySampling(sample : int) : void
 computeFpsPanel() : void
 compuetMillisPanel() : void
 computeMemoryPanel() : void
-setSamplingSize(samplingSize : int) : void
-setDisplay(pannel : TrackerType.String 
-toString():String
-getFPSSamplingSize() : int
+setDisplay(pannel : TrackerType) : void 
 getFPSSampleList() : List&lt;int&gt;
 getFPSMinSample() : int
 getFPSMaxSample() : int
-getMillisSamplingSize() : int
 getMillisSampleList() : List&lt;int&gt;
 getMillisMinSample() : int
 getMillisMaxSample() : int
-getMemorySamplingSize() : int
 getMemorySampleList() : List&lt;int&gt;
 getMemoryMinSample() : int
-getMemoryMaxSample() : int
-isPlaying() : boolean</panel_attributes>
+getMemoryMaxSample() : int</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>430</x>
-      <y>365</y>
-      <w>50</w>
-      <h>15</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>430</x>
-      <y>405</y>
-      <w>185</w>
-      <h>15</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>875</x>
-      <y>335</y>
+      <x>920</x>
+      <y>345</y>
       <w>215</w>
       <h>150</h>
     </coordinates>
@@ -223,8 +194,8 @@ setSize(width : int, height : int) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>970</x>
-      <y>560</y>
+      <x>1015</x>
+      <y>570</y>
       <w>190</w>
       <h>50</h>
     </coordinates>
@@ -240,8 +211,8 @@ computeCanvas(canvas PGraphics, x : int, y : int) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>855</x>
-      <y>510</y>
+      <x>900</x>
+      <y>520</y>
       <w>105</w>
       <h>50</h>
     </coordinates>
@@ -255,8 +226,8 @@ package :: fpstracker.ui
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>905</x>
-      <y>480</y>
+      <x>950</x>
+      <y>490</y>
       <w>15</w>
       <h>40</h>
     </coordinates>
@@ -266,8 +237,8 @@ package :: fpstracker.ui
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1015</x>
-      <y>480</y>
+      <x>1060</x>
+      <y>490</y>
       <w>15</w>
       <h>90</h>
     </coordinates>
@@ -277,47 +248,183 @@ package :: fpstracker.ui
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>515</y>
-      <w>435</w>
-      <h>15</h>
+      <x>385</x>
+      <y>565</y>
+      <w>580</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>850.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>1140.0;10.0;1140.0;90.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>565</y>
-      <w>550</w>
-      <h>15</h>
+      <x>385</x>
+      <y>615</y>
+      <w>730</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>1080.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>1440.0;10.0;1440.0;60.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>155</x>
-      <y>110</y>
-      <w>615</w>
-      <h>680</h>
+      <x>845</x>
+      <y>310</y>
+      <w>395</w>
+      <h>360</h>
     </coordinates>
-    <panel_attributes>fpstracker.core
+    <panel_attributes>fpstracker.ui
 --
 bg=white</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>405</x>
+      <y>655</y>
+      <w>260</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>CustomTracker
+Package :: fpstracker.core
+--
+parent : PApplet
+samplingSize : int
+sampler : Sampler
+play : boolean
+panel : UIPanel
+--
+Tracker(parent : PApplet, samplingSize : int, type : TrackerType) : void
+computePanel() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>405</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>380.0;10.0;380.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>445</y>
+      <w>340</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>660.0;10.0;660.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>445</y>
+      <w>95</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;500.0;10.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>565</y>
+      <w>330</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>640.0;10.0;640.0;290.0;10.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>615</y>
+      <w>490</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>960.0;10.0;960.0;220.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>145</x>
+      <y>240</y>
+      <w>245</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>&lt; &lt; Interface &gt; &gt;
+Sampling
+--
+/*move common function here*/
+play() : void
+pause() : void
+startSampling(sample : int) : void
+endSampling(sample : int) : void
+setSamplingSize(samplingSize : int) : void
+toString():String
+displayPanel(canvas : PGraphics, x : int, y : int) : void
+getSamplingSize() : int
+getSampleList() : List&lt;int&gt;
+getMinSample() : int
+getMaxSample() : int
+isPlaying() : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>375</y>
+      <w>15</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>375</y>
+      <w>485</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>300.0;10.0;300.0;50.0;10.0;50.0;10.0;860.0;950.0;860.0;950.0;750.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>405</y>
+      <w>105</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;190.0;140.0;190.0;560.0;130.0;560.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>800</x>
-      <y>300</y>
-      <w>395</w>
-      <h>345</h>
+      <x>5</x>
+      <y>75</y>
+      <w>820</w>
+      <h>785</h>
     </coordinates>
-    <panel_attributes>fpstracker.ui
+    <panel_attributes>fpstracker.core
 --
 bg=white</panel_attributes>
     <additional_attributes/>

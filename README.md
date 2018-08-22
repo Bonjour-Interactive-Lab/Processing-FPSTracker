@@ -21,6 +21,9 @@ P5 library for monitoring performance inspired by [stats.js](https://github.com/
 
 ## Informations and major updates
 
+* Data tracking are set between the pre() and draw() methods. Each of then run between the main draw() function of processing. Pre() run after the beginDraw() and draw() run at the end the main draw() and before the endDraw();
+* Because the tracking run between the main draw() methods the visualizer only display the frame from last computed frame to history n-x. The actual frame will be compute at the and of the draw and add for the next loop.
+
 ## Architecture et Design Pattern
 
 ## To do

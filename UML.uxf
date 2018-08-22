@@ -1,37 +1,325 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>450</x>
-      <y>90</y>
-      <w>360</w>
-      <h>350</h>
+      <x>470</x>
+      <y>360</y>
+      <w>130</w>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>Tracker
+    <panel_attributes>Sampler
+Package :: fpstracker.core
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>145</y>
+      <w>180</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>/BaseSampler/
+Package :: fpstracker.core
 --
 parent : PApplet
 samplingSize : int
-
-fpslist : List&lt;int&gt;
-millislis : List&lt;int&gt;
-memorylist : List&lt;int&gt;
-
-minpfps : int
-maxfps : int
-minmillis : int
-maxmillis : int
-minmemory : int
-maxmemory : int
-freememory : int
-totalmemory : int
-heapsize : int
+sampleList : List&lt;int&gt;
+minSample : int
+maxSample : int
+lastSample : int
+play : boolean
 --
-Tracker(parent : PApplet, samplingSize : int)
-startSampling() : void
-endSampling() : void
+BaseSampler(parent : PApplet, samplingSize : int) : void
+play() : void
+pause() : void
+startSampling(sample : int) : void
+endSampling(sample : int) : void
+setSamplingSize(samplingSize : int) : void
+getSamplingSize() : int
+getSampleList() : List&lt;int&gt;
+getMinSample() : int
+getMaxSample() : int
+isPlaying() : boolean
+toString() : String
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>360</y>
+      <w>130</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>SamplerMemory
+Package :: fpstracker.core
+--
+freeMemory : int
+totalMemory : int
+maxMemorySize : int
+--
+getMaxMemorySize() : int
+getTotalMemory() : int
+getFreeMemory() : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>535</x>
+      <y>320</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>320</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>255</x>
+      <y>180</y>
+      <w>105</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>TrackerType : enum
+Package :: fpstracker.core
+--
+FPS : String
+MILLIS : String
+MEMORY : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>345</y>
+      <w>245</w>
+      <h>410</h>
+    </coordinates>
+    <panel_attributes>Tracker
+Package :: fpstracker.core
+--
+parent : PApplet
+samplingSize : int
+fpsSampler : Sampler
+millisSampler : Sampler
+memorySampler : SamplerMemory
+play : boolean
+fpsPanel : UIPanel
+millisPanel : UIPanel
+memoryPanel : UIMemoryPanel
+actualPanel : int
+--
+Tracker(parent : PApplet, samplingSize : int) : void
+pre() : void
+draw() : void
+mouseEvent() : void
+play() : void
+pause() : void
+startSampling(sample : int) : void
+endSampling(sample : int) : void
+computePanels() : void
+displayPanels(canvas : PGraphics, x : int, y : int) : void
+displayNextPanel() : void
+displayPreviousPanel() : void
+startFPSSampling(sample : int) : void
+endFPSSampling(sample : int) : void
+startMillisSampling(sample : int) : void
+endMillisSampling(sample : int) : void
+startMemorySampling(sample : int) : void
+endMemorySampling(sample : int) : void
+computeFpsPanel() : void
+compuetMillisPanel() : void
+computeMemoryPanel() : void
+setSamplingSize(samplingSize : int) : void
+setDisplay(pannel : TrackerType.String 
+toString():String
+getFPSSamplingSize() : int
+getFPSSampleList() : List&lt;int&gt;
+getFPSMinSample() : int
+getFPSMaxSample() : int
+getMillisSamplingSize() : int
+getMillisSampleList() : List&lt;int&gt;
+getMillisMinSample() : int
+getMillisMaxSample() : int
+getMemorySamplingSize() : int
+getMemorySampleList() : List&lt;int&gt;
+getMemoryMinSample() : int
+getMemoryMaxSample() : int
+isPlaying() : boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>365</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>405</y>
+      <w>185</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>875</x>
+      <y>335</y>
+      <w>215</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>/BaseUIPanel/
+package :: fpstracker.ui
+--
+parent : PApplet
+canvas : PGraphics
+width : int
+height : int
+color : int
+type : string
+sampler : Sampler
+--
+BaseUIPanel(parent : PApplet, width : int, height : int) : void
+computeCanvas() : void
+display(context : PGraphics, x : int, y : int)
+getCanvas() : PGraphics
+setColor(color : int) : void
+setWidth(width : int) : void
+setHeight(height : int) : void
+setSize(width : int, height : int) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>560</y>
+      <w>190</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>UIMemoryPanel
+package :: fpstracker.ui
+--
+
+--
+/@override/
+computeCanvas(canvas PGraphics, x : int, y : int) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>510</y>
+      <w>105</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>UIPanel
+package :: fpstracker.ui
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>905</x>
+      <y>480</y>
+      <w>15</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1015</x>
+      <y>480</y>
+      <w>15</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>515</y>
+      <w>435</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>850.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>565</y>
+      <w>550</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>1080.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>155</x>
+      <y>110</y>
+      <w>615</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>fpstracker.core
+--
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>800</x>
+      <y>300</y>
+      <w>395</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>fpstracker.ui
+--
+bg=white</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

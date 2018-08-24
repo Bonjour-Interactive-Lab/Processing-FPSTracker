@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1095</x>
-      <y>335</y>
+      <y>265</y>
       <w>130</w>
       <h>50</h>
     </coordinates>
@@ -20,7 +20,7 @@ Package :: fpstracker.core
     <id>UMLClass</id>
     <coordinates>
       <x>1080</x>
-      <y>75</y>
+      <y>5</y>
       <w>305</w>
       <h>215</h>
     </coordinates>
@@ -54,7 +54,7 @@ toString() : String
     <id>UMLClass</id>
     <coordinates>
       <x>1230</x>
-      <y>335</y>
+      <y>265</y>
       <w>130</w>
       <h>90</h>
     </coordinates>
@@ -78,7 +78,7 @@ setFreeMemory(freeMemory : int) : void
     <id>Relation</id>
     <coordinates>
       <x>1160</x>
-      <y>285</y>
+      <y>215</y>
       <w>15</w>
       <h>60</h>
     </coordinates>
@@ -89,7 +89,7 @@ setFreeMemory(freeMemory : int) : void
     <id>Relation</id>
     <coordinates>
       <x>1290</x>
-      <y>285</y>
+      <y>215</y>
       <w>15</w>
       <h>60</h>
     </coordinates>
@@ -100,7 +100,7 @@ setFreeMemory(freeMemory : int) : void
     <id>UMLClass</id>
     <coordinates>
       <x>685</x>
-      <y>120</y>
+      <y>50</y>
       <w>150</w>
       <h>70</h>
     </coordinates>
@@ -117,7 +117,7 @@ CUSTOM</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>455</y>
+      <y>385</y>
       <w>245</w>
       <h>260</h>
     </coordinates>
@@ -162,7 +162,7 @@ getFreeMemory() : int
     <id>UMLClass</id>
     <coordinates>
       <x>1500</x>
-      <y>320</y>
+      <y>250</y>
       <w>215</w>
       <h>150</h>
     </coordinates>
@@ -191,7 +191,7 @@ setSize(width : int, height : int) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1595</x>
-      <y>545</y>
+      <y>475</y>
       <w>190</w>
       <h>50</h>
     </coordinates>
@@ -208,7 +208,7 @@ computeCanvas(canvas PGraphics, x : int, y : int) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1480</x>
-      <y>495</y>
+      <y>425</y>
       <w>105</w>
       <h>50</h>
     </coordinates>
@@ -223,7 +223,7 @@ package :: fpstracker.ui
     <id>Relation</id>
     <coordinates>
       <x>1530</x>
-      <y>465</y>
+      <y>395</y>
       <w>15</w>
       <h>40</h>
     </coordinates>
@@ -234,7 +234,7 @@ package :: fpstracker.ui
     <id>Relation</id>
     <coordinates>
       <x>1640</x>
-      <y>465</y>
+      <y>395</y>
       <w>15</w>
       <h>90</h>
     </coordinates>
@@ -245,7 +245,7 @@ package :: fpstracker.ui
     <id>UMLPackage</id>
     <coordinates>
       <x>1425</x>
-      <y>285</y>
+      <y>215</y>
       <w>395</w>
       <h>360</h>
     </coordinates>
@@ -258,7 +258,7 @@ bg=white</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>850</x>
-      <y>120</y>
+      <y>50</y>
       <w>205</w>
       <h>210</h>
     </coordinates>
@@ -288,7 +288,7 @@ toString():String</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>665</x>
-      <y>610</y>
+      <y>540</y>
       <w>130</w>
       <h>120</h>
     </coordinates>
@@ -307,7 +307,7 @@ addSample(sample : long) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>505</x>
-      <y>535</y>
+      <y>465</y>
       <w>130</w>
       <h>120</h>
     </coordinates>
@@ -326,7 +326,7 @@ addSample(sample : long) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>340</x>
-      <y>450</y>
+      <y>380</y>
       <w>130</w>
       <h>120</h>
     </coordinates>
@@ -346,7 +346,7 @@ addSample(sample : long) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>825</x>
-      <y>680</y>
+      <y>610</y>
       <w>130</w>
       <h>120</h>
     </coordinates>
@@ -357,14 +357,17 @@ parent : PApplet
 sampler : Sampler
 panel : UIPanel
 --
-addSample() : void</panel_attributes>
+addSample() : void
+getMaxMemorySize() : int
+getTotalMemory() : int
+getFreeMemory() : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>485</x>
-      <y>255</y>
+      <y>185</y>
       <w>305</w>
       <h>120</h>
     </coordinates>
@@ -384,7 +387,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>680</x>
-      <y>225</y>
+      <y>155</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
@@ -395,7 +398,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>410</x>
-      <y>370</y>
+      <y>300</y>
       <w>115</w>
       <h>90</h>
     </coordinates>
@@ -406,7 +409,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>575</x>
-      <y>370</y>
+      <y>300</y>
       <w>15</w>
       <h>175</h>
     </coordinates>
@@ -417,7 +420,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>370</y>
+      <y>300</y>
       <w>15</w>
       <h>250</h>
     </coordinates>
@@ -428,7 +431,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>765</x>
-      <y>370</y>
+      <y>300</y>
       <w>140</w>
       <h>320</h>
     </coordinates>
@@ -439,7 +442,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>465</x>
-      <y>380</y>
+      <y>310</y>
       <w>650</w>
       <h>105</h>
     </coordinates>
@@ -450,7 +453,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>380</y>
+      <y>310</y>
       <w>495</w>
       <h>190</h>
     </coordinates>
@@ -461,7 +464,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>380</y>
+      <y>310</y>
       <w>345</w>
       <h>265</h>
     </coordinates>
@@ -472,7 +475,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>950</x>
-      <y>420</y>
+      <y>350</y>
       <w>300</w>
       <h>295</h>
     </coordinates>
@@ -483,7 +486,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>950</x>
-      <y>590</y>
+      <y>520</y>
       <w>755</w>
       <h>135</h>
     </coordinates>
@@ -494,7 +497,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>465</x>
-      <y>480</y>
+      <y>410</y>
       <w>1025</w>
       <h>40</h>
     </coordinates>
@@ -505,7 +508,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>630</x>
-      <y>515</y>
+      <y>445</y>
       <w>860</w>
       <h>65</h>
     </coordinates>
@@ -516,7 +519,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>790</x>
-      <y>525</y>
+      <y>455</y>
       <w>700</w>
       <h>130</h>
     </coordinates>
@@ -527,7 +530,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>475</y>
+      <y>405</y>
       <w>275</w>
       <h>130</h>
     </coordinates>
@@ -538,7 +541,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>490</y>
+      <y>420</y>
       <w>435</w>
       <h>190</h>
     </coordinates>
@@ -549,7 +552,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>510</y>
+      <y>440</y>
       <w>595</w>
       <h>245</h>
     </coordinates>
@@ -560,7 +563,7 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>325</x>
-      <y>315</y>
+      <y>245</y>
       <w>150</w>
       <h>60</h>
     </coordinates>
@@ -576,7 +579,7 @@ addSample(sample : long) : void</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>380</x>
-      <y>370</y>
+      <y>300</y>
       <w>15</w>
       <h>90</h>
     </coordinates>

@@ -3,7 +3,7 @@ package fpstracker.core;
 import processing.core.PApplet;
 
 public class FPSTracker extends BaseCustomTracker{
-	protected float frameRate = 10;
+	protected int frameRate = 10;
 
 	public FPSTracker(PApplet parent, int samplingSize) {
 		super(parent);
@@ -19,7 +19,7 @@ public class FPSTracker extends BaseCustomTracker{
 		if(this.sampler.isPlaying()) {
 			double rate = 1000000.0 / ((sample - (long)this.lastSample) / 1000000.0);
 			float instantaneousRate = (float) (rate / 1000.0);
-			frameRate = (frameRate * 0.9f) + (instantaneousRate * 0.1f);
+			frameRate = (int) Math.round((frameRate * 0.9f) + (instantaneousRate * 0.1f));
 			this.sampler.addSample(frameRate);
 			this.lastSample = (long) sample;
 		}

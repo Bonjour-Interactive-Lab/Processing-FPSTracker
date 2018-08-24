@@ -6,6 +6,8 @@ FPSTracker fpst;
 MillisTracker mt;
 MemoryTracker mbt;
 
+
+
 int ixd;
 void setup() {
   size(400, 400);
@@ -17,16 +19,19 @@ void setup() {
   mt = new MillisTracker(this, 10);
   mbt = new MemoryTracker(this, 10);
   frameRate(60);
+
+  initPanel(200, 100);
 }
 
 void draw() {
-
-  background(204);
   int vInt = round(random(30, 100));
   float vFloat= random(30, 100);
 
   trackerInt.addSample(vInt);
   trackerFloat.addSample(vFloat);
+  fpst.addSample();
+  mt.addSample();
+  mbt.addSample();
 
   int minInt = (int) trackerInt.getMinSample();
   int maxInt = (int) trackerInt.getMaxSample();
@@ -34,36 +39,57 @@ void draw() {
   float minFloat = (float) trackerFloat.getMinSample();
   float maxFloat = (float) trackerFloat.getMaxSample();
 
-   println("--");
-   println("min: "+minInt+"\tmax: "+maxInt);
-   printArray(trackerInt.getSampleList());
-   println("\nmin: "+minFloat+"\tmax: "+maxFloat);
-   printArray(trackerFloat.getSampleList());
-   
-  fpst.addSample();
-  float minfps = (float) fpst.getMinSample();
-  float maxfps = (float) fpst.getMaxSample();
-  println("\nmin: "+minfps+"\tmax: "+maxfps);
-  printArray(fpst.getSampleList());
-  println(fpst.getSampleList().get(fpst.getSampleList().size()-1));
-  
-  
-  mt.addSample();
   float minmillis = (float) mt.getMinSample();
   float maxmillis = (float) mt.getMaxSample();
-  println("\nmin: "+minmillis+"\tmax: "+maxmillis);
-  printArray(mt.getSampleList());
-  println(mt.getSampleList().get(mt.getSampleList().size()-1));
-  
-  mbt.addSample();
+
+  int minfps = (int) fpst.getMinSample();
+  int maxfps = (int) fpst.getMaxSample();
+
   int minmemory = (int) mbt.getMinSample();
   int maxmemory = (int) mbt.getMaxSample();
-  println("\nmin: "+minmemory+"\tmax: "+maxmemory);
+
+  println("--");
+  println("CustomTracker (int)");
+  println("min: "+minInt+"\tmax: "+maxInt);
+  printArray(trackerInt.getSampleList());
+
+  println("\nCustomTracker (float)");
+  println("min: "+minFloat+"\tmax: "+maxFloat);
+  printArray(trackerFloat.getSampleList());
+
+  println("\nFPSTracker");
+  println("min: "+minfps+"\tmax: "+maxfps);
+  printArray(fpst.getSampleList());
+  println(fpst.getSampleList().get(fpst.getSampleList().size()-1));
+
+  println("\nMillisTracker");
+  println("min: "+minmillis+"\tmax: "+maxmillis);
+  printArray(mt.getSampleList());
+  println(mt.getSampleList().get(mt.getSampleList().size()-1));
+
+  println("\nMemoryTracker");
+  println("min: "+minmemory+"\tmax: "+maxmemory);
   printArray(mbt.getSampleList());
   println(mbt.getSampleList().get(mbt.getSampleList().size()-1));
   println("free: "+mbt.getFreeMemory()+"\n"+
-          "Max: "+mbt.getMaxMemorySize()+"\n"+
-          "Total: "+mbt.getTotalMemory());
+    "Max: "+mbt.getMaxMemorySize()+"\n"+
+    "Total: "+mbt.getTotalMemory());
+
+
+  String headerTitle = fpst.getSampleList().get(fpst.getSampleList().size()-1) + " FPS ["+minfps+"-"+maxfps+"]";
+
+  computePanel(headerTitle, fpst.getSampleList(), fpst.getMinSample(), fpst.getMaxSample());
+
+  background(204);
+
+  image(buffer, 0, 0);
+
+  textAlign(CENTER);
+  text(frameRate, width/2, height/2);
+
+
+  //if (frameCount > 5)
+    //noLoop();
 }
 
 void keyPressed() {

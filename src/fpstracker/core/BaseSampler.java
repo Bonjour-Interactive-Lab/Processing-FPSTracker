@@ -2,25 +2,26 @@ package fpstracker.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import processing.core.*;
 
-public abstract class BaseSampler {
+import processing.core.PApplet;
+
+public abstract class BaseSampler{
 	protected PApplet parent;
 	protected int samplingSize;
-	protected List<Object> sampleList;
-	protected Object minSample, maxSample;
+	protected List<Number> sampleList;
+	protected Number minSample, maxSample;
 	protected boolean play = true;
 	protected TrackerType type;
 
 	public BaseSampler() {
 	}
-	
+
 
 	public BaseSampler(PApplet parent, int samplingSize, TrackerType type) {
 		this.parent = parent;
 		this.samplingSize = samplingSize;
 		this.type = type;
-		this.sampleList = new ArrayList<Object>();
+		this.sampleList = new ArrayList<Number>();
 		//how to define float/int tracker (?)
 	}
 
@@ -32,20 +33,39 @@ public abstract class BaseSampler {
 		this.play = false;
 	}
 	
-	protected void addSample(double sample) {
+	protected void addSample(Number sample) {
+		defineMinMax(sample);
+		addToListAndUpdate(sample);
+	}
+	
+	private void defineMinMax(Number sample) {
 		if(this.minSample == null) {
 			this.minSample = sample;
 		}else {
 			//check if sample is min
-			this.minSample = (sample < (int) this.minSample) ? sample : this.minSample;
+			int test = compareNumbers(sample, this.minSample);
+			this.minSample = (test <= 0) ? sample : this.minSample;
 		}
 
 		if(this.maxSample == null) {
 			this.maxSample = sample;
 		}else {
 			//check if sample is max
-			this.maxSample = (sample > (int) this.maxSample) ? sample : this.maxSample;
+			int test = compareNumbers(sample, this.maxSample);
+			this.maxSample = (test > 0) ? sample : this.maxSample;
 		}
+	}
+
+	
+	private int compareNumbers(Number n1, Number n2)
+    {
+        Double n2c = n2.doubleValue();
+        Double n1c = n1.doubleValue();
+
+        return n1c.compareTo(n2c);
+    }
+	
+	private void addToListAndUpdate(Number sample) {
 
 		//add sample to list
 		this.sampleList.add(sample);
@@ -54,57 +74,11 @@ public abstract class BaseSampler {
 		if(this.sampleList.size() > this.samplingSize)
 			this.sampleList.remove(0);
 	}
-
-	protected void addSample(int sample) {
-		if(this.minSample == null) {
-			this.minSample = sample;
-		}else {
-			//check if sample is min
-			this.minSample = (sample < (int) this.minSample) ? sample : this.minSample;
-		}
-
-		if(this.maxSample == null) {
-			this.maxSample = sample;
-		}else {
-			//check if sample is max
-			this.maxSample = (sample > (int) this.maxSample) ? sample : this.maxSample;
-		}
-
-		//add sample to list
-		this.sampleList.add(sample);
-
-		//remove first sample if array is to large
-		if(this.sampleList.size() > this.samplingSize)
-			this.sampleList.remove(0);
-	}
-
-	protected void addSample(float sample) {
-		if(this.minSample == null) {
-			this.minSample = sample;
-		}else {
-			//check if sample is min
-			this.minSample = (sample < (float) this.minSample) ? sample : this.minSample;
-		}
-
-		if(this.maxSample == null) {
-			this.maxSample = sample;
-		}else {
-			//check if sample is max
-			this.maxSample = (sample > (float) this.maxSample) ? sample : this.maxSample;
-		}
-
-		//add sample to list
-		this.sampleList.add(sample);
-
-		//remove first sample if array is to large
-		if(this.sampleList.size() > this.samplingSize)
-			this.sampleList.remove(0);
-	}
-
+	
 	public void setSampleSize(int samplingSize) {
 		this.samplingSize = samplingSize;
 	}
-	
+
 	protected void resetSampleListBetween(int fromIndex, int toIndex) {
 		this.sampleList = this.sampleList.subList(fromIndex, toIndex);
 	}
@@ -113,16 +87,20 @@ public abstract class BaseSampler {
 		return this.samplingSize;
 	}
 
-	public List<Object> getSampleList(){
+	public List<Number> getSampleList(){
 		return this.sampleList;
 	}
 
-	public Object getMinSample() {
+	public Number getMinSample() {
 		return this.minSample;
 	}
 
-	public Object getMaxSample() {
+	public Number getMaxSample() {
 		return this.maxSample;
+	}
+	
+	public Number getLastSample() {
+		return this.sampleList.get(this.sampleList.size() - 1);
 	}
 
 	public boolean isPlaying() {
@@ -130,6 +108,6 @@ public abstract class BaseSampler {
 	}
 
 	public String toString() {
-		return this.getClass().getName()+" "+this.getClass().hashCode();
+		return this.getLastSample() +" "+ type +" ["+ this.getMinSample()+"-"+this.getMaxSample()+"]";
 	}
 }

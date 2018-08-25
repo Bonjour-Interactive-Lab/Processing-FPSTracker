@@ -40,4 +40,14 @@ public class SamplerMemory extends BaseSampler {
 	public int getFreeMemory() {
 		return this.freeMemory;
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+" Free: "+this.getFreeMemory()+"MB Total: "+this.getTotalMemory()+"MB Max: "+this.getMaxMemorySize()+"MB";
+	}
+	
+	public String toStringMinify() {
+		return super.toString()+"["+this.getFreeMemory()+" - "+this.getTotalMemory()+"- "+this.getMaxMemorySize()+"]";
+	}
+	
 }

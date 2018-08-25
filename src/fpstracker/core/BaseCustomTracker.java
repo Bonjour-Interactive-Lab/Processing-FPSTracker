@@ -86,17 +86,17 @@ public abstract class BaseCustomTracker implements Sampling{
 	}
 
 	@Override
-	public List<Object> getSampleList() {
+	public List<Number> getSampleList() {
 		return this.sampler.getSampleList();
 	}
 
 	@Override
-	public Object getMinSample() {
+	public Number getMinSample() {
 		return this.sampler.getMinSample(); 
 	}
 
 	@Override
-	public Object getMaxSample() {
+	public Number getMaxSample() {
 		return this.sampler.getMaxSample();
 	}
 
@@ -109,5 +109,9 @@ public abstract class BaseCustomTracker implements Sampling{
 	public PGraphics getPanel() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public String toString() {
+		return this.sampler.toString();
 	}
 }

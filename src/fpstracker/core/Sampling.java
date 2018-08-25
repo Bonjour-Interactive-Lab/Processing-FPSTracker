@@ -18,9 +18,9 @@ public interface Sampling {
 	public void setColor(int color);
 	
 	public int getSamplingSize();
-	public List<Object> getSampleList();
-	public Object getMinSample();
-	public Object getMaxSample();
+	public List<Number> getSampleList();
+	public Number getMinSample();
+	public Number getMaxSample();
 	public boolean isPlaying();
 	public PGraphics getPanel();
 	

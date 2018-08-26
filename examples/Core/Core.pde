@@ -16,11 +16,11 @@ void settings() {
 void setup() {
   //smooth();
 
-  trackerInt = new CustomTracker(this, 60);
-  trackerFloat = new CustomTracker(this, 60);
-  fpst = new FPSTracker(this, 60);
-  mt = new MillisTracker(this, 60);
-  mbt = new MemoryTracker(this, 60);
+  trackerInt = new CustomTracker(this, 100);
+  trackerFloat = new CustomTracker(this, 100);
+  fpst = new FPSTracker(this, 100);
+  mt = new MillisTracker(this, 100);
+  mbt = new MemoryTracker(this, 100);
   //frameRate(30);
 
   initPanel(200, 100);

@@ -139,7 +139,7 @@ getGraphColor() : int</panel_attributes>
       <x>399</x>
       <y>546</y>
       <w>343</w>
-      <h>434</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes>PerfTracker
 Package :: fpstracker.core

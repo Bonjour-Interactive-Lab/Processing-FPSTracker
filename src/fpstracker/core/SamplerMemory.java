@@ -47,7 +47,8 @@ public class SamplerMemory extends BaseSampler {
 	}
 	
 	public String toStringMinify() {
-		return super.toStringMinify()+" ["+this.getFreeMemory()+"-"+this.getTotalMemory()+"-"+this.getMaxMemorySize()+"]";
+		//return super.toStringMinify()+" ["+this.getFreeMemory()+"-"+this.getTotalMemory()+"-"+this.getMaxMemorySize()+"]";
+		return super.toStringMinify();
 	}
 	
 }

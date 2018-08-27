@@ -13,7 +13,7 @@ public class MillisTracker extends BaseCustomTracker{
 		super(parent);
 		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.MILLIS);
 		this.lastSample = (long) System.nanoTime();
-		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.MILLIS.getUI());
+		this.ui = new UIPanel(this.parent, 110, 60, DesignUI.MILLIS.getUI());
 	}
 	
 	public MillisTracker(PApplet parent, int samplingSize, int width, int height) {

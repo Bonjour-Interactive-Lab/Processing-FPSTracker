@@ -7,6 +7,7 @@ public class UI{
 	private int graphColor;
 	private float fontSize;
 	private float margin;
+	private float leading;
 
 	public UI(int backgroundRed, int backgroundGreen, int backgroundBlue, 
 			int colorRed, int colorGreen, int colorBlue, 
@@ -20,6 +21,7 @@ public class UI{
 		this.graphColor = getRGBINtColor(graphColorRed, graphColorGreen, graphColorBlue);
 		this.fontSize = fontSize;
 		this.margin = margin;
+		this.leading = fontSize * 0.96f;
 	}
 
 	public int getRGBINtColor(int red, int green, int blue){
@@ -48,5 +50,9 @@ public class UI{
 	
 	public float getMargin() {
 		return this.margin;
+	}
+	
+	public float getLeading() {
+		return this.leading;
 	}
 }

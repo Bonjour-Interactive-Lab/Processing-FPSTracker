@@ -29,6 +29,21 @@ public class PerfTracker {
 		this.parent.registerMethod("draw", this);
 		this.parent.registerMethod("mouseEvent", this);
 	}
+	
+	public PerfTracker(PApplet parent, int samplingSize, int width, int height) {
+		this.parent = parent;
+		trackerList = new ArrayList<BaseCustomTracker>();
+		trackerList.add(new FPSTracker(this.parent, samplingSize, width, height));
+		trackerList.add(new MillisTracker(this.parent, samplingSize, width, height));
+		trackerList.add(new MemoryTracker(this.parent, samplingSize, width, height));
+		this.actualPannel = 0;
+		this.displayAll = false;
+		this.computeUI = true;
+		this.datasAsString = "";
+
+		this.parent.registerMethod("draw", this);
+		this.parent.registerMethod("mouseEvent", this);
+	}
 
 	//Automatic methods set for processing
 	public void draw() {

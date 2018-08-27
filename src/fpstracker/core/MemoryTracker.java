@@ -12,12 +12,12 @@ public class MemoryTracker extends BaseCustomTracker{
 		super(parent);
 		this.sampler = new SamplerMemory(this.parent, samplingSize, TrackerType.MEMORY);
 		this.lastSample = (int) 0;
-		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.MEMORY.getUI());
+		this.ui = new UIPanel(this.parent, 110, 60, DesignUI.MEMORY.getUI());
 	}
 	
 	public MemoryTracker(PApplet parent, int samplingSize, int width, int height) {
 		super(parent);
-		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.MEMORY);
+		this.sampler = new SamplerMemory(this.parent, samplingSize, TrackerType.MEMORY);
 		this.lastSample = (int) 0;
 		this.ui = new UIPanel(this.parent, width, height, DesignUI.MEMORY.getUI());
 	}

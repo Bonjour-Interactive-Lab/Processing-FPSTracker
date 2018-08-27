@@ -47,7 +47,7 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 				this.computeHeader(title, 0, 0);
 				this.fontHeight = this.getFontHeight();
 				this.computeNumberOfLines(title);
-				this.computeGraph(list, min, max, 0f, 0f + this.ui.getMargin() * 2 + this.fontHeight * this.numberOfLines);
+				this.computeGraph(list, min, max, 0f, 0f + this.ui.getMargin() * 2.75f + this.fontHeight * this.numberOfLines + this.ui.getLeading() * (this.numberOfLines - 1));
 				this.canvas.endDraw();
 			}
 		}catch(Exception e) {
@@ -61,6 +61,7 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 		this.canvas.noStroke();
 		this.canvas.textAlign(LEFT, TOP);
 		this.canvas.textSize(this.ui.getFontSize());
+		this.canvas.textLeading(this.ui.getLeading());
 		this.canvas.text(title, x + this.ui.getMargin(), y + this.ui.getMargin(), this.width - this.ui.getMargin() * 2, this.height - this.ui.getMargin() * 2);
 		this.canvas.popStyle();
 	}

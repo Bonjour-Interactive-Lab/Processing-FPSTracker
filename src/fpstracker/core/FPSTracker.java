@@ -13,7 +13,7 @@ public class FPSTracker extends BaseCustomTracker{
 		super(parent);
 		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.FPS);
 		this.lastSample = (long) 0;
-		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.FPS.getUI());
+		this.ui = new UIPanel(this.parent, 110, 60, DesignUI.FPS.getUI());
 	}
 	
 	public FPSTracker(PApplet parent, int samplingSize, int width, int height) {

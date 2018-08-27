@@ -1,4 +1,5 @@
 import fpstracker.core.*;
+import fpstracker.ui.*;
 
 
 CustomTracker trackerInt, trackerFloat;
@@ -6,11 +7,12 @@ FPSTracker fpst;
 MillisTracker mt;
 MemoryTracker mbt;
 Design design;
+PerfTracker pt;
 
 int ixd;
 float s = 1;
 void settings() {
-  size(int(400 * s), int(300 * s));
+  size(int(800 * s), int(300 * s));
 }
 
 void setup() {
@@ -21,10 +23,11 @@ void setup() {
   fpst = new FPSTracker(this, 100);
   mt = new MillisTracker(this, 100);
   mbt = new MemoryTracker(this, 100);
+  pt = new PerfTracker(this, 100);
+
   //frameRate(30);
 
   initPanel(200, 100);
-
 }
 
 void draw() {
@@ -52,36 +55,35 @@ void draw() {
 
   int minmemory = (int) mbt.getMinSample();
   int maxmemory = (int) mbt.getMaxSample();
-  /*
+/*
   println("--");
-   println("CustomTracker (int)");
-   println("min: "+minInt+"\tmax: "+maxInt);
-   printArray(trackerInt.getSampleList());
-   
-   println("\nCustomTracker (float)");
-   println("min: "+minFloat+"\tmax: "+maxFloat);
-   printArray(trackerFloat.getSampleList());
-   
-   println("\nFPSTracker");
-   println("min: "+minfps+"\tmax: "+maxfps);
-   printArray(fpst.getSampleList());
-   println(fpst.getSampleList().get(fpst.getSampleList().size()-1));
-   
-   println("\nMillisTracker");
-   println("min: "+minmillis+"\tmax: "+maxmillis);
-   printArray(mt.getSampleList());
-   println(mt.getSampleList().get(mt.getSampleList().size()-1));
-   
-   println("\nMemoryTracker");
-   println("min: "+minmemory+"\tmax: "+maxmemory);
-   printArray(mbt.getSampleList());
-   println(mbt.getSampleList().get(mbt.getSampleList().size()-1));
-   println("free: "+mbt.getFreeMemory()+"\n"+
-   "Max: "+mbt.getMaxMemorySize()+"\n"+
-   "Total: "+mbt.getTotalMemory());
-   
-   */
+  println("CustomTracker (int)");
+  println("min: "+minInt+"\tmax: "+maxInt);
+  printArray(trackerInt.getSampleList());
 
+  println("\nCustomTracker (float)");
+  println("min: "+minFloat+"\tmax: "+maxFloat);
+  printArray(trackerFloat.getSampleList());
+
+  println("\nFPSTracker");
+  println("min: "+minfps+"\tmax: "+maxfps);
+  printArray(fpst.getSampleList());
+  println(fpst.getSampleList().get(fpst.getSampleList().size()-1));
+
+  println("\nMillisTracker");
+  println("min: "+minmillis+"\tmax: "+maxmillis);
+  printArray(mt.getSampleList());
+  println(mt.getSampleList().get(mt.getSampleList().size()-1));
+
+  println("\nMemoryTracker");
+  println("min: "+minmemory+"\tmax: "+maxmemory);
+  printArray(mbt.getSampleList());
+  println(mbt.getSampleList().get(mbt.getSampleList().size()-1));
+  println("free: "+mbt.getFreeMemory()+"\n"+
+    "Max: "+mbt.getMaxMemorySize()+"\n"+
+    "Total: "+mbt.getTotalMemory());
+
+*/
   String headerFPS = fpst.toString();
   String headerMemory = mbt.toStringMinify();//mbt.getSampleList().get(mbt.getSampleList().size()-1) + " Memory ["+minmemory+"-"+maxmemory+"]";
   String headerMillis = mt.toString();//mt.getSampleList().get(mt.getSampleList().size()-1) + " Millis ["+minmillis+"-"+maxmillis+"]";
@@ -93,21 +95,42 @@ void draw() {
 
   surface.setTitle(topBar);
   background(204);
-
+/*
   //0 for fps
   computePanel(headerFPS, fpst.getSampleList(), 0.0, fpst.getMaxSample(), Design.FPS);
-  image(buffer, 0, 0);
+  image(buffer, 400, 0);
   computePanel(headerMemory, mbt.getSampleList(), mbt.getMinSample(), mbt.getMaxSample(), Design.Memory);
 
-  image(buffer, 0, buffer.height);
+  image(buffer, 400, buffer.height);
   computePanel(headerMemory, mbt.getSampleList(), mbt.getMinSample(), mbt.getMaxSample(), Design.Memory);
 
   computePanel(headerMillis, mt.getSampleList(), 0.0, mt.getMaxSample(), Design.Millis);
-  image(buffer, 0, buffer.height * 2);
+  image(buffer, 400, buffer.height * 2);
 
 
   computePanel(headerCustom, trackerFloat.getSampleList(), trackerFloat.getMinSample(), trackerFloat.getMaxSample(), Design.Custom);
-  image(buffer, buffer.width, 0);
+  image(buffer, 400+ buffer.width, 0);
+*/
+  fpst.computePanel();
+  mt.computePanel();
+  mbt.computePanel();
+  trackerFloat.computePanel();
+  trackerInt.setDesignUI(new UI(
+                          20, 20, 20,
+                          200, 200, 200,
+                          40, 40, 40,
+                          240, 240, 240,
+                          14, 2));
+  trackerInt.computePanel();
+
+  fpst.displayPanel(0, 0);
+  mbt.displayPanel(0, 100);
+  mt.displayPanel(0, 200);
+  trackerFloat.displayPanel(200, 0);
+  trackerInt.displayPanel(200, 100);
+  
+  pt.display(width-pt.getWidth(), 0);
+  //pt.displayAll(width-pt.getWidth(), 0);
 
   textAlign(RIGHT);
   fill(20);
@@ -117,7 +140,8 @@ void draw() {
   float margin = 20;
   float x = buffer.width + margin;
   float y = buffer.height + margin;
-  text(topBar, x, y, width - x, height -y);
+
+  // text(topBar, x, y, width - x, height -y);
 
 
   //if (frameCount > 5)
@@ -125,7 +149,7 @@ void draw() {
 }
 
 void keyPressed() {
-  if (key != 'p' && key != 'P') {
+  /*if (key != 'p' && key != 'P') {
     if (ixd%2 == 0) {
       trackerInt.setSamplingSize(3);
       trackerFloat.setSamplingSize(3);
@@ -138,7 +162,7 @@ void keyPressed() {
       mt.setSamplingSize(30);
     }
     ixd++;
-  }
+  }*/
 
   if (key == 'p' || key == 'P') {
     if (trackerInt.isPlaying()) {
@@ -150,5 +174,13 @@ void keyPressed() {
     fpst.playpause();
     mt.playpause();
     mbt.playpause();
+  }
+  
+  if(key == 'a'){
+    pt.displayNextPannel();
+  }
+  
+  if(key == 'z'){
+    pt.displayPreviousPannel();
   }
 }

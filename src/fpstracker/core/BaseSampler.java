@@ -102,12 +102,20 @@ public abstract class BaseSampler{
 	public Number getLastSample() {
 		return this.sampleList.get(this.sampleList.size() - 1);
 	}
+	
+	public TrackerType getType() {
+		return this.type;
+	}
 
 	public boolean isPlaying() {
 		return this.play;
 	}
+	
+	public String toStringMinify() {
+		return this.getLastSample() +" "+ type +" ["+ this.getMinSample()+"-"+this.getMaxSample()+"]";
+	}
 
 	public String toString() {
-		return this.getLastSample() +" "+ type +" ["+ this.getMinSample()+"-"+this.getMaxSample()+"]";
+		return this.getLastSample() +" "+ type +" [Min: "+ this.getMinSample()+" Max: "+this.getMaxSample()+"]";
 	}
 }

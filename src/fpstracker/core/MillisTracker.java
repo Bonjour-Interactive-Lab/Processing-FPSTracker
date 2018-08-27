@@ -1,5 +1,7 @@
 package fpstracker.core;
 
+import fpstracker.ui.DesignUI;
+import fpstracker.ui.UIPanel;
 import processing.core.PApplet;
 
 public class MillisTracker extends BaseCustomTracker{
@@ -11,8 +13,17 @@ public class MillisTracker extends BaseCustomTracker{
 		super(parent);
 		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.MILLIS);
 		this.lastSample = (long) System.nanoTime();
+		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.MILLIS.getUI());
 	}
 	
+	public MillisTracker(PApplet parent, int samplingSize, int width, int height) {
+		super(parent);
+		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.MILLIS);
+		this.lastSample = (long) System.nanoTime();
+		this.ui = new UIPanel(this.parent, width, height, DesignUI.MILLIS.getUI());
+	}
+
+	@Override
 	public void addSample() {
 		this.addSample(System.nanoTime());
 	}
@@ -35,4 +46,10 @@ public class MillisTracker extends BaseCustomTracker{
 		super.play();
 		this.lastSample = System.nanoTime();
 	} 
+	
+	@Override
+	public void computePanel() {
+		// TODO Auto-generated method stub
+		this.ui.computePannel(this.toStringMinify(), this.getSampleList(), 0.0, this.getMaxSample());
+	}
 }

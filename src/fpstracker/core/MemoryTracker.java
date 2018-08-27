@@ -1,5 +1,7 @@
 package fpstracker.core;
 
+import fpstracker.ui.DesignUI;
+import fpstracker.ui.UIPanel;
 import processing.core.PApplet;
 
 public class MemoryTracker extends BaseCustomTracker{
@@ -9,8 +11,18 @@ public class MemoryTracker extends BaseCustomTracker{
 	public MemoryTracker(PApplet parent, int samplingSize) {
 		super(parent);
 		this.sampler = new SamplerMemory(this.parent, samplingSize, TrackerType.MEMORY);
+		this.lastSample = (int) 0;
+		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.MEMORY.getUI());
+	}
+	
+	public MemoryTracker(PApplet parent, int samplingSize, int width, int height) {
+		super(parent);
+		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.MEMORY);
+		this.lastSample = (int) 0;
+		this.ui = new UIPanel(this.parent, width, height, DesignUI.MEMORY.getUI());
 	}
 
+	@Override
 	public void addSample() {
 		if(this.sampler.isPlaying()) {
 			Runtime runtime = Runtime.getRuntime();

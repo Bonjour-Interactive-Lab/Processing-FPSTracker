@@ -2,6 +2,7 @@ import java.util.*;
 
 PGraphics buffer;
 float margin = 5;
+float fontSize = 13;
 float txtHeight;
 int numberOfLine;
 
@@ -13,13 +14,14 @@ void initPanel(int w, int h) {
 //compute height text for graph position
 
 void computePanel(String title, List<Number> list, Number min, Number max, Design design) {
+  print("\t", list.size(), design);
   buffer.beginDraw();
   buffer.background(design.background);
-  computeHeader(buffer, title, 12, 0, 0, margin, design.col);
+  computeHeader(buffer, title, fontSize, 0, 0, margin, design.col);
 
   defineTextHeight(buffer);  // -> this need to be defin once
   defineNumberOfLine(buffer, title, margin);
-println(buffer.textLeading);
+//println(buffer.textLeading);
   computeGraph(buffer, list, min, max, 0, 0 + margin * 2 + txtHeight * numberOfLine, 0, design.graphBackground, design.graphColor);
 
   buffer.endDraw();
@@ -50,8 +52,8 @@ void computeGraph(PGraphics canvas, List<Number> list, Number min, Number max, f
   float gwidth = canvas.width - nx * 2;
   float gheight = canvas.height - ny - margin;
   float graphMargin = gheight * 0.25;
-  Number first = list.get(list.size() - 1);
-  float normfirst = normalize(min, max, first);
+  //Number first = list.get(list.size() - 1);
+  //float normfirst = normalize(min, max, first);
 
   canvas.pushStyle();
   canvas.noStroke();

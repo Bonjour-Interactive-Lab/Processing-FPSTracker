@@ -1,7 +1,8 @@
 package fpstracker.core;
 
-import processing.core.*;
 import java.util.List;
+import fpstracker.ui.UI;
+import processing.core.PGraphics;
 
 public interface Sampling {
 	public void play();
@@ -10,19 +11,23 @@ public interface Sampling {
 
 	public void computePanel();
 	public void displayPanel(PGraphics canvas, int x, int y);
+	public void displayPanel(int x, int y);
 	
 	public void setSamplingSize(int size);
 	public void setWidth(int width);
 	public void setHeight(int height);
 	public void setSize(int width, int height);
-	public void setColor(int color);
+	public void setDesignUI(UI ui);
 	
 	public int getSamplingSize();
 	public List<Number> getSampleList();
 	public Number getMinSample();
 	public Number getMaxSample();
 	public boolean isPlaying();
+	public TrackerType getType();
 	public PGraphics getPanel();
+	public int[] getXY();
 	
 	public String toString();
+	public String toStringMinify();
 }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1752</x>
-      <y>416</y>
-      <w>208</w>
-      <h>80</h>
+      <x>1932</x>
+      <y>378</y>
+      <w>182</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Sampler
 Package :: fpstracker.core
@@ -19,10 +19,10 @@ Package :: fpstracker.core
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1728</x>
-      <y>0</y>
-      <w>488</w>
-      <h>344</h>
+      <x>1911</x>
+      <y>7</y>
+      <w>427</w>
+      <h>308</h>
     </coordinates>
     <panel_attributes>/BaseSampler/
 Package :: fpstracker.core
@@ -48,7 +48,9 @@ getSampleList() : List&lt;Number&gt;
 getMinSample() : Number
 getMaxSample() : Number
 getLastSample() : Number
+getType() : TrackerType
 isPlaying() : boolean
+toStringMinify() : String
 toString() : String
 </panel_attributes>
     <additional_attributes/>
@@ -56,10 +58,10 @@ toString() : String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1968</x>
-      <y>416</y>
-      <w>208</w>
-      <h>144</h>
+      <x>2121</x>
+      <y>378</y>
+      <w>182</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>SamplerMemory
 Package :: fpstracker.core
@@ -82,10 +84,10 @@ toStringMinify() : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1856</x>
-      <y>336</y>
-      <w>24</w>
-      <h>96</h>
+      <x>2023</x>
+      <y>308</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
@@ -93,10 +95,10 @@ toStringMinify() : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2064</x>
-      <y>336</y>
-      <w>24</w>
-      <h>96</h>
+      <x>2205</x>
+      <y>308</y>
+      <w>21</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
@@ -104,64 +106,76 @@ toStringMinify() : String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2368</x>
-      <y>112</y>
-      <w>472</w>
-      <h>224</h>
+      <x>2667</x>
+      <y>0</y>
+      <w>413</w>
+      <h>217</h>
     </coordinates>
-    <panel_attributes>DesignUI : enum
+    <panel_attributes>UI
 Package :: fpstracker.ui
---
-FPS
-MILLIS
-MEMORY
-CUSTOM
 --
 background : int
 color : int
 graphBackground : int
 graphColor : int
+fontSize : float
 --
 Design(backgroundRed : int, backgroundGreen : int, backgroundBlue : int, 
        colRed : int, colGreen : int, colBlue : int, 
        graphBackgroundRed : int, graphBackgroundGreen : int, graphBackgroundRBlue : int, 
-       graphColorRed : int, graphColorGreen : int, graphColorBlue : int) : void
-getRGBColor() : int</panel_attributes>
+       graphColorRed : int, graphColorGreen : int, graphColorBlue : int, 
+       fontSize : float) : void
+getRGBColor() : int
+getFontSize() : float
+getBackgroundColor() : int
+getColor() : int
+getGraphBrackgroundColor() : int
+getGraphColor() : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>608</y>
-      <w>392</w>
-      <h>416</h>
+      <x>399</x>
+      <y>546</y>
+      <w>343</w>
+      <h>434</h>
     </coordinates>
-    <panel_attributes>Stats
+    <panel_attributes>PerfTracker
 Package :: fpstracker.core
 --
 parent : PApplet
 actualPanel : int
-samplerList : List&lt;BaseCustomTracker&gt;
+trackerList : List&lt;BaseCustomTracker&gt;
+displayAll : boolean
+computeUI : boolean
+datasAsString : String
 --
-Tracker(parent : PApplet, samplingSize : int) : void
+PerfTracker(parent : PApplet, samplingSize : int) : void
 pre() : void
 draw() : void
 mouseEvent() : void
+
 displayNextPanel() : void
 displayPreviousPanel() : void
-startSampling() : void
-endSampling() : void
+displayOnTopBar(programName : String) : void
+display(pannel : int, canvas : PGraphics, x : int, y : int) : void
+displayAll(pannel : int,canvas : PGraphics, x : int, y : int) : void
+displayAllUI(pannel : int,canvas : PGraphics, x : int, y : int) : void
+displayUI(pannel : int,canvas : PGraphics, x : int, y : int) : void
 computePanels : void
-displayPanels(canvas : PGraphics, x : int, y : int) : void
+addSample() : void
 play() : void
 pause() : void
+playPause() : void
 play(type : TrackerType) : void
 pause(type : TrackerType) : void
+playPause(type : TrackerType) :  void 
 setSamplingSize(samplingSize : int) : void
 setWidth(width : int) : void
 setHeight(height : int) : void
 setSize(width : int, height : int)
+setUIComputation() : void
 getSamplingSize() : int
 getSamplingList(type : TrackerType) : List&lt;int&gt;
 getMinSample(type : TrackerType) : int
@@ -169,6 +183,8 @@ getMaxSample(type : TrackerType) : int
 getMaxMemorySize() : int
 getTotalMemory() : int
 getFreeMemory() : int
+getHeight() : int
+getWidth() : int
 
 
 </panel_attributes>
@@ -177,10 +193,10 @@ getFreeMemory() : int
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2368</x>
-      <y>392</y>
-      <w>344</w>
-      <h>240</h>
+      <x>2471</x>
+      <y>238</y>
+      <w>301</w>
+      <h>329</h>
     </coordinates>
     <panel_attributes>/BaseUIPanel/
 package :: fpstracker.ui
@@ -189,25 +205,38 @@ parent : PApplet
 canvas : PGraphics
 width : int
 height : int
-type : string
-ui : DesignUI
+x : int
+y : int
+fontHeight : float;
+numberOfLine : int;
+ui : UI
 --
-BaseUIPanel(parent : PApplet, width : int, height : int, ui : DesignUI) : void
-computeCanvas() : void
+BaseUIPanel(parent : PApplet, width : int, height : int, ui : UI) : void
+computePanel(tracker : BaseCustomTracker) : void
 display(context : PGraphics, x : int, y : int)
-getCanvas() : PGraphics
+getPanel() : PGraphics
+computeHeader(tracker : BaseCustomTracker, int x, int y) : void
+computeNumberOfLines(tracker : BaseCustomTracker) : void
+computeGraph(tracker : BaseCustomTracker, int x, int y) : void
 setWidth(width : int) : void
 setHeight(height : int) : void
-setSize(width : int, height : int) : void</panel_attributes>
+setSize(width : int, height : int) : void
+setDesignUI(ui : UI) : void
+setXY(x : int, y : int) : void
+getX() : int
+getY() : int
+getXY() : int[]
+resize(width :int, height : int) : void
+getFontHeight() : float</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2368</x>
-      <y>672</y>
-      <w>168</w>
-      <h>80</h>
+      <x>2471</x>
+      <y>602</y>
+      <w>147</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>UIPanel
 package :: fpstracker.ui
@@ -219,10 +248,10 @@ package :: fpstracker.ui
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2448</x>
-      <y>624</y>
-      <w>24</w>
-      <h>64</h>
+      <x>2541</x>
+      <y>560</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -230,10 +259,10 @@ package :: fpstracker.ui
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1360</x>
-      <y>72</y>
-      <w>328</w>
-      <h>336</h>
+      <x>1589</x>
+      <y>77</y>
+      <w>287</w>
+      <h>294</h>
     </coordinates>
     <panel_attributes>&lt; &lt; Interface &gt; &gt;
 Sampling
@@ -243,10 +272,14 @@ pause() : void
 playpause();
 computePanel() : void
 displayPanel(canvas : PGraphics, x : int, y : int) : void
+displayPanel(x : int, y : int) : void
 setSamplingSize(samplingSize : int) : void
 setWidth(width : int) : void
 setHeight(height : int) : void
 setSize(width : int, height : int) : void
+setDesignUI(ui : UI);
+getXY() : int[]
+getType() : TrackerType
 setColor(color : int) : void
 getSamplingSize() : int
 getSampleList() : List&lt;Object&gt;
@@ -254,16 +287,17 @@ getMinSample() : Object
 getMaxSample() : Object
 isPlaying() : boolean
 getPanel() : PGraphics
-toString():String</panel_attributes>
+toString():String
+toStringMinify():String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1064</x>
-      <y>856</y>
-      <w>208</w>
-      <h>192</h>
+      <x>1330</x>
+      <y>763</y>
+      <w>182</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>MillisTracker
 Package :: fpstracker.core
@@ -283,10 +317,10 @@ play() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>808</x>
-      <y>736</y>
-      <w>208</w>
-      <h>192</h>
+      <x>1106</x>
+      <y>658</y>
+      <w>182</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>FPSTracker
 Package :: fpstracker.core
@@ -305,10 +339,10 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>600</y>
-      <w>208</w>
-      <h>192</h>
+      <x>875</x>
+      <y>539</y>
+      <w>182</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>CustomTracker
 Package :: fpstracker.core
@@ -325,10 +359,10 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1320</x>
-      <y>968</y>
-      <w>208</w>
-      <h>192</h>
+      <x>1554</x>
+      <y>861</y>
+      <w>182</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>MemoryTracker
 Package :: fpstracker.core
@@ -349,10 +383,10 @@ toStringMinify() : String</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>776</x>
-      <y>288</y>
-      <w>488</w>
-      <h>192</h>
+      <x>1078</x>
+      <y>266</y>
+      <w>427</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>/BaseCustomTracker/
 Package :: fpstracker.core
@@ -369,10 +403,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1088</x>
-      <y>240</y>
-      <w>288</w>
-      <h>64</h>
+      <x>1351</x>
+      <y>224</y>
+      <w>252</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>340.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
@@ -380,10 +414,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>472</y>
-      <w>184</w>
-      <h>144</h>
+      <x>973</x>
+      <y>427</y>
+      <w>161</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>210.0;10.0;210.0;100.0;10.0;100.0;10.0;160.0</additional_attributes>
@@ -391,10 +425,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>920</x>
-      <y>472</y>
-      <w>24</w>
-      <h>280</h>
+      <x>1204</x>
+      <y>427</y>
+      <w>21</w>
+      <h>245</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
@@ -402,10 +436,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>472</y>
-      <w>24</w>
-      <h>400</h>
+      <x>1407</x>
+      <y>427</y>
+      <w>21</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
@@ -413,10 +447,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1224</x>
-      <y>472</y>
-      <w>224</w>
-      <h>512</h>
+      <x>1470</x>
+      <y>427</y>
+      <w>196</w>
+      <h>448</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;100.0;260.0;100.0;260.0;620.0</additional_attributes>
@@ -424,10 +458,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>488</y>
-      <w>1040</w>
-      <h>168</h>
+      <x>1050</x>
+      <y>441</y>
+      <w>910</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1280.0;10.0;1280.0;190.0;10.0;190.0</additional_attributes>
@@ -435,10 +469,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>488</y>
-      <w>792</w>
-      <h>304</h>
+      <x>1281</x>
+      <y>441</y>
+      <w>693</w>
+      <h>266</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>970.0;10.0;970.0;360.0;10.0;360.0</additional_attributes>
@@ -446,10 +480,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1264</x>
-      <y>488</y>
-      <w>552</w>
-      <h>424</h>
+      <x>1505</x>
+      <y>441</y>
+      <w>483</w>
+      <h>371</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>670.0;10.0;670.0;510.0;10.0;510.0</additional_attributes>
@@ -457,21 +491,21 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1520</x>
-      <y>552</y>
-      <w>480</w>
-      <h>472</h>
+      <x>1729</x>
+      <y>532</y>
+      <w>420</w>
+      <h>378</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>580.0;10.0;580.0;570.0;10.0;570.0</additional_attributes>
+    <additional_attributes>580.0;10.0;580.0;520.0;10.0;520.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1520</x>
-      <y>736</y>
-      <w>864</w>
-      <h>304</h>
+      <x>1729</x>
+      <y>658</y>
+      <w>756</w>
+      <h>266</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1060.0;10.0;920.0;10.0;920.0;360.0;10.0;360.0</additional_attributes>
@@ -479,10 +513,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>648</y>
-      <w>1640</w>
-      <h>64</h>
+      <x>1050</x>
+      <y>581</y>
+      <w>1435</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>2030.0;60.0;1840.0;60.0;1840.0;10.0;10.0;10.0</additional_attributes>
@@ -490,10 +524,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>704</y>
-      <w>1376</w>
-      <h>104</h>
+      <x>1281</x>
+      <y>630</y>
+      <w>1204</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1700.0;10.0;1510.0;10.0;1510.0;110.0;10.0;110.0</additional_attributes>
@@ -501,10 +535,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1264</x>
-      <y>720</y>
-      <w>1120</w>
-      <h>208</h>
+      <x>1505</x>
+      <y>644</y>
+      <w>980</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1380.0;10.0;1210.0;10.0;1210.0;240.0;10.0;240.0</additional_attributes>
@@ -512,10 +546,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>640</y>
-      <w>440</w>
-      <h>208</h>
+      <x>735</x>
+      <y>574</y>
+      <w>385</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>530.0;240.0;140.0;240.0;140.0;10.0;10.0;10.0</additional_attributes>
@@ -523,10 +557,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>664</y>
-      <w>696</w>
-      <h>304</h>
+      <x>735</x>
+      <y>595</y>
+      <w>609</w>
+      <h>266</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>850.0;360.0;100.0;360.0;100.0;10.0;10.0;10.0</additional_attributes>
@@ -534,10 +568,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>696</y>
-      <w>952</w>
-      <h>392</h>
+      <x>735</x>
+      <y>623</y>
+      <w>833</w>
+      <h>343</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>1170.0;470.0;60.0;470.0;60.0;10.0;10.0;10.0</additional_attributes>
@@ -545,10 +579,10 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>384</y>
-      <w>240</w>
-      <h>96</h>
+      <x>854</x>
+      <y>350</y>
+      <w>210</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>&lt; &lt; Interface &gt; &gt;
 AddSample
@@ -561,10 +595,10 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>472</y>
-      <w>24</w>
-      <h>144</h>
+      <x>931</x>
+      <y>427</y>
+      <w>21</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
@@ -572,10 +606,10 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1112</x>
-      <y>88</y>
-      <w>240</w>
-      <h>112</h>
+      <x>1372</x>
+      <y>91</y>
+      <w>210</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>TrackerType : enum
 Package :: fpstracker.core
@@ -585,5 +619,42 @@ MILLIS
 MEMORY
 CUSTOM</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2471</x>
+      <y>28</y>
+      <w>133</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>DesignUI : enum
+Package :: fpstracker.ui
+--
+FPS : UI
+MILLIS : UI
+MEMORY : UI
+CUSTOM : UI
+--
+ui : UI
+color : int
+graphBackground : int
+graphColor : int
+fontSize : float
+--
+Design(ui : UI) : void
+getUI() : UI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2597</x>
+      <y>70</y>
+      <w>84</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

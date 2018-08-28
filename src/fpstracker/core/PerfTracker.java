@@ -13,7 +13,6 @@ public class PerfTracker {
 	private int actualPannel;
 	private boolean displayAll;
 	private boolean computeUI;
-	private String datasAsString;
 
 	public PerfTracker(PApplet parent, int samplingSize) {
 		this.parent = parent;
@@ -24,7 +23,6 @@ public class PerfTracker {
 		this.actualPannel = 0;
 		this.displayAll = false;
 		this.computeUI = true;
-		this.datasAsString = "";
 
 		this.parent.registerMethod("draw", this);
 		this.parent.registerMethod("mouseEvent", this);
@@ -39,7 +37,6 @@ public class PerfTracker {
 		this.actualPannel = 0;
 		this.displayAll = false;
 		this.computeUI = true;
-		this.datasAsString = "";
 
 		this.parent.registerMethod("draw", this);
 		this.parent.registerMethod("mouseEvent", this);
@@ -56,22 +53,11 @@ public class PerfTracker {
 				computePanels();
 			}
 		}
-		this.computeDataAsString();
 		long uiEndTime = System.nanoTime() - uiStartTime;
 		this.trackerList.get(0).lastSample = (long) this.trackerList.get(0).lastSample - (long) uiEndTime;
 		this.trackerList.get(1).lastSample = (long) this.trackerList.get(1).lastSample - (long) uiEndTime;
 		//System.out.println(te);
 	}
-	
-	private void computeDataAsString() {
-		this.datasAsString = "";
-		for(BaseCustomTracker tracker : trackerList) {
-			if(tracker.isPlaying()) {
-				this.datasAsString += tracker.toString()+" - ";
-			}
-		}
-	}
-
 
 	public void mouseEvent(MouseEvent event) {
 		int x = event.getX();
@@ -94,7 +80,7 @@ public class PerfTracker {
 	}
 
 	public void displayOnTopBar(String programName) {
-		this.parent.getSurface().setTitle(programName + ": "+this.datasAsString);
+		this.parent.getSurface().setTitle(programName + ": "+this.toString());
 	}
 
 	public void display(int x, int y) {
@@ -313,8 +299,32 @@ public class PerfTracker {
 	public int getWidth() {
 		return this.trackerList.get(this.actualPannel).getPanel().width;
 	}
+	
+	public PGraphics getActualPannel() {
+		return this.trackerList.get(this.actualPannel).getPanel();
+	}
 
 	public String toString(){
-		return this.datasAsString;
+		String name = "";
+		for(int i = 0; i<this.trackerList.size(); i++) {
+			BaseCustomTracker tracker = trackerList.get(i);
+			name += tracker.toString();
+			if(i<this.trackerList.size() - 1) {
+				name += " - ";
+			}
+		}
+		return name;
+	}
+	
+	public String toStringMinify(){
+		String name = "";
+		for(int i = 0; i<this.trackerList.size(); i++) {
+			BaseCustomTracker tracker = trackerList.get(i);
+			name += tracker.toStringMinify();
+			if(i<this.trackerList.size() - 1) {
+				name += " - ";
+			}
+		}
+		return name;
 	}
 }

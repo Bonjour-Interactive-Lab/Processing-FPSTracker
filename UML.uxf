@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1932</x>
-      <y>378</y>
+      <x>1533</x>
+      <y>399</y>
       <w>182</w>
       <h>70</h>
     </coordinates>
@@ -19,10 +19,10 @@ Package :: fpstracker.core
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1911</x>
-      <y>7</y>
+      <x>1512</x>
+      <y>0</y>
       <w>427</w>
-      <h>308</h>
+      <h>336</h>
     </coordinates>
     <panel_attributes>/BaseSampler/
 Package :: fpstracker.core
@@ -33,6 +33,8 @@ sampleList : List&lt;Number&gt;
 minSample : Number
 maxSample : Number
 play : boolean
+name : String
+minifiedName : String
 --
 BaseSampler(parent : PApplet, samplingSize : int, type : TrackerType) : void
 play() : void
@@ -58,8 +60,8 @@ toString() : String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2121</x>
-      <y>378</y>
+      <x>1722</x>
+      <y>399</y>
       <w>182</w>
       <h>161</h>
     </coordinates>
@@ -84,8 +86,8 @@ toStringMinify() : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>308</y>
+      <x>1624</x>
+      <y>329</y>
       <w>21</w>
       <h>84</h>
     </coordinates>
@@ -95,8 +97,8 @@ toStringMinify() : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2205</x>
-      <y>308</y>
+      <x>1806</x>
+      <y>329</y>
       <w>21</w>
       <h>84</h>
     </coordinates>
@@ -106,8 +108,8 @@ toStringMinify() : String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2667</x>
-      <y>0</y>
+      <x>2268</x>
+      <y>21</y>
       <w>413</w>
       <h>217</h>
     </coordinates>
@@ -136,10 +138,10 @@ getGraphColor() : int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>399</x>
-      <y>546</y>
+      <x>0</x>
+      <y>567</y>
       <w>343</w>
-      <h>490</h>
+      <h>497</h>
     </coordinates>
     <panel_attributes>PerfTracker
 Package :: fpstracker.core
@@ -149,13 +151,11 @@ actualPanel : int
 trackerList : List&lt;BaseCustomTracker&gt;
 displayAll : boolean
 computeUI : boolean
-datasAsString : String
 --
 PerfTracker(parent : PApplet, samplingSize : int) : void
 pre() : void
 draw() : void
 mouseEvent() : void
-
 displayNextPanel() : void
 displayPreviousPanel() : void
 displayOnTopBar(programName : String) : void
@@ -185,6 +185,8 @@ getTotalMemory() : int
 getFreeMemory() : int
 getHeight() : int
 getWidth() : int
+toString() : String
+toSTringMinify() : String
 
 
 </panel_attributes>
@@ -193,8 +195,8 @@ getWidth() : int
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2471</x>
-      <y>238</y>
+      <x>2072</x>
+      <y>259</y>
       <w>301</w>
       <h>329</h>
     </coordinates>
@@ -233,8 +235,8 @@ getFontHeight() : float</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2471</x>
-      <y>602</y>
+      <x>2072</x>
+      <y>623</y>
       <w>147</w>
       <h>70</h>
     </coordinates>
@@ -248,8 +250,8 @@ package :: fpstracker.ui
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2541</x>
-      <y>560</y>
+      <x>2142</x>
+      <y>581</y>
       <w>21</w>
       <h>56</h>
     </coordinates>
@@ -259,8 +261,8 @@ package :: fpstracker.ui
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1589</x>
-      <y>77</y>
+      <x>1190</x>
+      <y>98</y>
       <w>287</w>
       <h>294</h>
     </coordinates>
@@ -294,8 +296,8 @@ toStringMinify():String</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1330</x>
-      <y>763</y>
+      <x>931</x>
+      <y>784</y>
       <w>182</w>
       <h>168</h>
     </coordinates>
@@ -317,8 +319,8 @@ play() : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1106</x>
-      <y>658</y>
+      <x>707</x>
+      <y>679</y>
       <w>182</w>
       <h>168</h>
     </coordinates>
@@ -339,8 +341,8 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>875</x>
-      <y>539</y>
+      <x>476</x>
+      <y>560</y>
       <w>182</w>
       <h>168</h>
     </coordinates>
@@ -359,8 +361,8 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1554</x>
-      <y>861</y>
+      <x>1155</x>
+      <y>882</y>
       <w>182</w>
       <h>168</h>
     </coordinates>
@@ -383,8 +385,8 @@ toStringMinify() : String</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1078</x>
-      <y>266</y>
+      <x>679</x>
+      <y>287</y>
       <w>427</w>
       <h>168</h>
     </coordinates>
@@ -403,8 +405,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1351</x>
-      <y>224</y>
+      <x>952</x>
+      <y>245</y>
       <w>252</w>
       <h>56</h>
     </coordinates>
@@ -414,8 +416,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>973</x>
-      <y>427</y>
+      <x>574</x>
+      <y>448</y>
       <w>161</w>
       <h>126</h>
     </coordinates>
@@ -425,8 +427,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1204</x>
-      <y>427</y>
+      <x>805</x>
+      <y>448</y>
       <w>21</w>
       <h>245</h>
     </coordinates>
@@ -436,8 +438,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1407</x>
-      <y>427</y>
+      <x>1008</x>
+      <y>448</y>
       <w>21</w>
       <h>350</h>
     </coordinates>
@@ -447,8 +449,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1470</x>
-      <y>427</y>
+      <x>1071</x>
+      <y>448</y>
       <w>196</w>
       <h>448</h>
     </coordinates>
@@ -458,8 +460,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1050</x>
-      <y>441</y>
+      <x>651</x>
+      <y>462</y>
       <w>910</w>
       <h>147</h>
     </coordinates>
@@ -469,8 +471,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1281</x>
-      <y>441</y>
+      <x>882</x>
+      <y>462</y>
       <w>693</w>
       <h>266</h>
     </coordinates>
@@ -480,8 +482,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1505</x>
-      <y>441</y>
+      <x>1106</x>
+      <y>462</y>
       <w>483</w>
       <h>371</h>
     </coordinates>
@@ -491,8 +493,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1729</x>
-      <y>532</y>
+      <x>1330</x>
+      <y>553</y>
       <w>420</w>
       <h>378</h>
     </coordinates>
@@ -502,8 +504,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1729</x>
-      <y>658</y>
+      <x>1330</x>
+      <y>679</y>
       <w>756</w>
       <h>266</h>
     </coordinates>
@@ -513,8 +515,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1050</x>
-      <y>581</y>
+      <x>651</x>
+      <y>602</y>
       <w>1435</w>
       <h>56</h>
     </coordinates>
@@ -524,8 +526,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1281</x>
-      <y>630</y>
+      <x>882</x>
+      <y>651</y>
       <w>1204</w>
       <h>91</h>
     </coordinates>
@@ -535,8 +537,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1505</x>
-      <y>644</y>
+      <x>1106</x>
+      <y>665</y>
       <w>980</w>
       <h>182</h>
     </coordinates>
@@ -546,8 +548,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>735</x>
-      <y>574</y>
+      <x>336</x>
+      <y>595</y>
       <w>385</w>
       <h>182</h>
     </coordinates>
@@ -557,8 +559,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>735</x>
-      <y>595</y>
+      <x>336</x>
+      <y>616</y>
       <w>609</w>
       <h>266</h>
     </coordinates>
@@ -568,8 +570,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>735</x>
-      <y>623</y>
+      <x>336</x>
+      <y>644</y>
       <w>833</w>
       <h>343</h>
     </coordinates>
@@ -579,8 +581,8 @@ BaseCustomTracker(parent : PApplet) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>854</x>
-      <y>350</y>
+      <x>455</x>
+      <y>371</y>
       <w>210</w>
       <h>84</h>
     </coordinates>
@@ -595,8 +597,8 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>931</x>
-      <y>427</y>
+      <x>532</x>
+      <y>448</y>
       <w>21</w>
       <h>126</h>
     </coordinates>
@@ -606,8 +608,8 @@ addSample(sample : long) : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1372</x>
-      <y>91</y>
+      <x>973</x>
+      <y>112</y>
       <w>210</w>
       <h>98</h>
     </coordinates>
@@ -623,8 +625,8 @@ CUSTOM</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2471</x>
-      <y>28</y>
+      <x>2072</x>
+      <y>49</y>
       <w>133</w>
       <h>182</h>
     </coordinates>
@@ -649,8 +651,8 @@ getUI() : UI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2597</x>
-      <y>70</y>
+      <x>2198</x>
+      <y>91</y>
       <w>84</w>
       <h>21</h>
     </coordinates>

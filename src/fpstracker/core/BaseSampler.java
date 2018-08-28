@@ -12,6 +12,8 @@ public abstract class BaseSampler{
 	protected Number minSample, maxSample;
 	protected boolean play = true;
 	protected TrackerType type;
+	protected String name;
+	protected String minifiedName;
 
 	public BaseSampler() {
 	}
@@ -22,7 +24,8 @@ public abstract class BaseSampler{
 		this.samplingSize = samplingSize;
 		this.type = type;
 		this.sampleList = new ArrayList<Number>();
-		//how to define float/int tracker (?)
+		this.name = type.toString();
+		this.minifiedName = type.toString();
 	}
 
 	protected void play() {
@@ -112,10 +115,10 @@ public abstract class BaseSampler{
 	}
 	
 	public String toStringMinify() {
-		return this.getLastSample() +" "+ type +" ["+ this.getMinSample()+"-"+this.getMaxSample()+"]";
+		return (this.sampleList.size() > 0) ? this.getLastSample() +" "+ type +" ["+ this.getMinSample()+"-"+this.getMaxSample()+"]" : this.name;
 	}
 
 	public String toString() {
-		return this.getLastSample() +" "+ type +" [Min: "+ this.getMinSample()+" Max: "+this.getMaxSample()+"]";
+		return (this.sampleList.size() > 0) ? this.getLastSample() +" "+ type +" [Min: "+ this.getMinSample()+" Max: "+this.getMaxSample()+"]" : this.minifiedName;
 	}
 }

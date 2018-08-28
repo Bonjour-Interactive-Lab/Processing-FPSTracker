@@ -39,9 +39,7 @@ public abstract class BaseCustomTracker implements Sampling{
 	@Override
 	public void computePanel() {
 		// TODO Auto-generated method stub
-		if(this.isPlaying()) {
-			this.ui.computePannel(this.toStringMinify(), this.getSampleList(), this.getMinSample(), this.getMaxSample());
-		}
+		this.ui.computePannel(this.toStringMinify(), this.getSampleList(), this.getMinSample(), this.getMaxSample());
 	}
 
 	@Override

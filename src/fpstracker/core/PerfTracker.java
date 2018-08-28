@@ -29,7 +29,7 @@ public class PerfTracker {
 		this.parent.registerMethod("draw", this);
 		this.parent.registerMethod("mouseEvent", this);
 	}
-	
+
 	public PerfTracker(PApplet parent, int samplingSize, int width, int height) {
 		this.parent = parent;
 		trackerList = new ArrayList<BaseCustomTracker>();
@@ -47,7 +47,7 @@ public class PerfTracker {
 
 	//Automatic methods set for processing
 	public void draw() {
-		addSample();
+		this.addSample();
 		long uiStartTime = System.nanoTime();
 		if(this.computeUI) {
 			if(!this.displayAll) {
@@ -56,27 +56,34 @@ public class PerfTracker {
 				computePanels();
 			}
 		}
-		this.datasAsString = this.trackerList.get(0).toString() + " - "+
-				this.trackerList.get(1).toString() + " - "+
-				this.trackerList.get(2).toString();
-
+		this.computeDataAsString();
 		long uiEndTime = System.nanoTime() - uiStartTime;
 		this.trackerList.get(0).lastSample = (long) this.trackerList.get(0).lastSample - (long) uiEndTime;
 		this.trackerList.get(1).lastSample = (long) this.trackerList.get(1).lastSample - (long) uiEndTime;
 		//System.out.println(te);
+	}
+	
+	private void computeDataAsString() {
+		this.datasAsString = "";
+		for(BaseCustomTracker tracker : trackerList) {
+			if(tracker.isPlaying()) {
+				this.datasAsString += tracker.toString()+" - ";
+			}
+		}
 	}
 
 
 	public void mouseEvent(MouseEvent event) {
 		int x = event.getX();
 		int y = event.getY();
-		
-		if(event.getAction() == MouseEvent.PRESS) {
-			if(x >= this.trackerList.get(0).getXY()[0] &&
-			   x <= this.trackerList.get(0).getXY()[0] + this.getWidth() &&
-			   y >= this.trackerList.get(0).getXY()[1] &&
-			   y <= this.trackerList.get(0).getXY()[1] + this.getHeight()) {
-				this.displayNextPannel();
+		if(computeUI && !this.displayAll) {
+			if(event.getAction() == MouseEvent.PRESS) {
+				if(x >= this.trackerList.get(0).getXY()[0] &&
+						x <= this.trackerList.get(0).getXY()[0] + this.getWidth() &&
+						y >= this.trackerList.get(0).getXY()[1] &&
+						y <= this.trackerList.get(0).getXY()[1] + this.getHeight()) {
+					this.displayNextPannel();
+				}
 			}
 		}
 	}

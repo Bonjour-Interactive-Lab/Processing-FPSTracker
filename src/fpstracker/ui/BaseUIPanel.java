@@ -49,6 +49,11 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 				this.computeNumberOfLines(title);
 				this.computeGraph(list, min, max, 0f, 0f + this.ui.getMargin() * 2.75f + this.fontHeight * this.numberOfLines + this.ui.getLeading() * (this.numberOfLines - 1));
 				this.canvas.endDraw();
+			}else {
+				this.canvas.beginDraw();
+				this.canvas.background(this.ui.getBackgroundColor());
+				this.computeHeader(title + " has been paused", 0, 0);
+				this.canvas.endDraw();
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

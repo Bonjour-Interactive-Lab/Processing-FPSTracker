@@ -85,6 +85,12 @@ public abstract class BaseSampler{
 	protected void resetSampleListBetween(int fromIndex, int toIndex) {
 		this.sampleList = this.sampleList.subList(fromIndex, toIndex);
 	}
+	
+	public void resetSamples() {
+		this.sampleList = new ArrayList<Number>();
+		this.minSample = null;
+		this.maxSample = null;
+	}
 
 	public int getSamplingSize() {
 		return this.samplingSize;

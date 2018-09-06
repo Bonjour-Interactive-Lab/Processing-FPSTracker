@@ -20,6 +20,7 @@ public interface Sampling {
 	public void setDesignUI(UI ui);
 	
 	public int getSamplingSize();
+	public void resetSamples();
 	public List<Number> getSampleList();
 	public Number getMinSample();
 	public Number getMaxSample();

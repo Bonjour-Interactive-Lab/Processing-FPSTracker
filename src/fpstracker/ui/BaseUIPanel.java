@@ -118,11 +118,11 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 	public void setSize(int width, int height) {
 		this.width = width;
 		this.height = height;
-		resize(this.width, this.height);
+		this.resize(this.width, this.height);
 	}
 
 	private void resize(int width, int height) {
-		canvas.resize(this.width, this.height);
+		this.canvas = this.parent.createGraphics(width, height);
 	}
 
 	public void setDesignUI(UI ui) {

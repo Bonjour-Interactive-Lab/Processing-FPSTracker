@@ -9,7 +9,7 @@ public class CustomTracker extends BaseCustomTracker implements AddSample{
 	public CustomTracker(PApplet parent, int samplingSize) {
 		super(parent);
 		this.sampler = new Sampler(this.parent, samplingSize, TrackerType.CUSTOM);
-		this.ui = new UIPanel(this.parent, 200, 100, DesignUI.CUSTOM.getUI());
+		this.ui = new UIPanel(this.parent, 110, 60, DesignUI.CUSTOM.getUI());
 	}
 	
 	public CustomTracker(PApplet parent, int samplingSize, int width, int height) {

@@ -4,6 +4,16 @@ import java.util.List;
 import processing.core.*;
 
 public abstract class BaseCustomTracker implements Sampling{
+	/*
+	 * Library informations
+	 */
+	public final static String VERSION = "##library.prettyVersion##";
+	public final static String NAME = "##library.name##";
+	public final static String AUTHOR = "##author##";
+	
+	/*
+	 * Class
+	 */
 	protected PApplet parent;
 	protected BaseSampler sampler;
 	protected Object lastSample;
@@ -62,6 +72,11 @@ public abstract class BaseCustomTracker implements Sampling{
 			this.sampler.resetSampleListBetween(fromIndex, this.sampler.getSampleList().size());
 		}
 		this.sampler.setSampleSize(size);
+	}
+	
+	@Override
+	public void resetSamples() {
+		this.sampler.resetSamples();
 	}
 
 	@Override
@@ -137,5 +152,9 @@ public abstract class BaseCustomTracker implements Sampling{
 	@Override
 	public String toStringMinify() {
 		return this.sampler.toStringMinify();
+	}
+	
+	public static String getLibraryInfos() {
+		return NAME+" "+VERSION+" by "+AUTHOR;
 	}
 }

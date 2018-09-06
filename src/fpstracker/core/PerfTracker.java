@@ -220,6 +220,12 @@ public class PerfTracker {
 			tracker.setSamplingSize(samplingSize);
 		}
 	}
+	
+	public void resetSamples() {
+		for(BaseCustomTracker tracker : trackerList) {
+			tracker.resetSamples();
+		}
+	}
 
 	public void setWidth(int width) {
 		for(BaseCustomTracker tracker : trackerList) {
@@ -326,5 +332,9 @@ public class PerfTracker {
 			}
 		}
 		return name;
+	}
+	
+	public String getLibraryInfos() {
+		return trackerList.get(0).getLibraryInfos();
 	}
 }

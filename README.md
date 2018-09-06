@@ -26,5 +26,3 @@ P5 library for monitoring performance inspired by [stats.js](https://github.com/
 
 ## Architecture et Design Pattern
 ![Design Pattern](https://gitlab.bonjour-lab.com/alexr4/FPSTracker/raw/master/UML.png)
-
-## To do

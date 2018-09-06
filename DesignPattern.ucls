@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <enumeration id="1" language="java" name="fpstracker.ui.DesignUI" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/ui/DesignUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="119" x="1256" y="832"/>    
+    <position height="-1" width="-1" x="1414" y="938"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </enumeration>  
   <class id="2" language="java" name="fpstracker.core.PerfTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/PerfTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="613" y="315"/>    
+    <position height="-1" width="-1" x="181" y="317"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="fpstracker.core.SamplerMemory" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/SamplerMemory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="224" x="-16" y="1992"/>    
+    <position height="-1" width="-1" x="324" y="1600"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <enumeration id="4" language="java" name="fpstracker.core.TrackerType" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/TrackerType.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="136" x="248" y="1992"/>    
+    <position height="-1" width="-1" x="204" y="1073"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,8 +39,8 @@
   </enumeration>  
   <class id="5" language="java" name="fpstracker.core.BaseCustomTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/BaseCustomTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="531" width="195" x="499" y="832"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="621" width="252" x="526" y="7"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="fpstracker.ui.BaseUIPanel" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/ui/BaseUIPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="531" width="271" x="1415" y="832"/>    
+    <position height="-1" width="-1" x="1044" y="1256"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <interface id="7" language="java" name="fpstracker.utils.MathsUtils" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/utils/MathsUtils.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="219" x="1643" y="1403"/>    
+    <position height="-1" width="-1" x="1037" y="892"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </interface>  
   <class id="8" language="java" name="fpstracker.core.Sampler" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/Sampler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="186" x="424" y="1992"/>    
+    <position height="-1" width="-1" x="555" y="1502"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="fpstracker.core.FPSTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/FPSTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="168" x="-195" y="1403"/>    
+    <position height="-1" width="-1" x="968" y="191"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="fpstracker.core.BaseSampler" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/BaseSampler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="549" width="211" x="248" y="1403"/>    
+    <position height="-1" width="-1" x="439" y="1082"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <interface id="11" language="java" name="fpstracker.core.Sampling" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/Sampling.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="441" width="195" x="13" y="1403"/>    
+    <position height="-1" width="-1" x="652" y="-280"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </interface>  
   <class id="12" language="java" name="fpstracker.core.MemoryTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/MemoryTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="187" x="499" y="1403"/>    
+    <position height="-1" width="-1" x="976" y="676"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="fpstracker.ui.UIPanel" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/ui/UIPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="145" x="1162" y="1403"/>    
+    <position height="-1" width="-1" x="736" y="836"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="fpstracker.core.MillisTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/MillisTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="171" x="726" y="1403"/>    
+    <position height="-1" width="-1" x="969" y="428"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <interface id="15" language="java" name="fpstracker.core.AddSample" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/AddSample.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="142" x="937" y="1992"/>    
+    <position height="-1" width="-1" x="980" y="-262"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </interface>  
   <class id="16" language="java" name="fpstracker.core.CustomTracker" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/core/CustomTracker.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="185" x="937" y="1403"/>    
+    <position height="-1" width="-1" x="978" y="-34"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,81 +147,81 @@
   </class>  
   <class id="17" language="java" name="fpstracker.ui.UI" project="FPSTracker" 
     file="/FPSTracker/FPSTracker/src/fpstracker/ui/UI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="256" x="1347" y="1403"/>    
+    <position height="-1" width="-1" x="1418" y="1256"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <association id="19">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="20" name="sampler">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
+  <association id="18">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="23" name="trackerList">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="19" name="trackerList">        
+        <position height="0" width="0" x="27" y="-780"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="27" y="-780"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
+  <association id="21">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="26" name="ui">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="22" name="sampler">        
+        <position height="0" width="0" x="86" y="-595"/>      
       </attribute>      
-      <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="86" y="-595"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="12"/>    
+  <realization id="24">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </realization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <generalization id="29">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="30">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="31" name="type">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="26">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="27" name="ui">        
+        <position height="0" width="0" x="-57" y="-322"/>      
       </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-57" y="-322"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <realization id="31">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <association id="32">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="33" name="type">        
+        <position height="0" width="0" x="-112" y="-1013"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-112" y="-1013"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <realization id="34">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="15"/>  
-  </realization>  
   <generalization id="35">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="5"/>  
@@ -229,43 +229,43 @@
   <association id="36">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="37" name="ui">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-57" y="-322"/>      
       </attribute>      
       <multiplicity id="38" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-57" y="-322"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="39">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="41">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="42" name="ui">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="44">    
+  <generalization id="40">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="41">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <realization id="45">    
+  <realization id="42">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
+  <association id="43">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="44" name="ui">        
+        <position height="0" width="0" x="-498" y="-607"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-498" y="-607"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

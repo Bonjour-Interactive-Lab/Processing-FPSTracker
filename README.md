@@ -4,9 +4,9 @@ P5 library for monitoring performance inspired by [stats.js](https://github.com/
 
 | Plateforme : 	| Status:		|
 |---------------|---------------|
-| **`Windows`** | ![status](https://img.shields.io/badge/build-prerelease-green.svg) |
-| **`OSX`** 	| ![status](https://img.shields.io/badge/build-prerelease-green.svg) |
-| **`Linux`** 	| ![status](https://img.shields.io/badge/build-prerelease-green.svg) |
+| **`Windows`** | ![status](https://img.shields.io/badge/build-prerelease-green.svg?longCache=true&style=flat&colorA=grey&colorB=f48c42) |
+| **`OSX`** 	| ![status](https://img.shields.io/badge/build-prerelease-green.svg?longCache=true&style=flat&colorA=grey&colorB=f48c42) |
+| **`Linux`** 	| ![status](https://img.shields.io/badge/build-prerelease-green.svg?longCache=true&style=flat&colorA=grey&colorB=f48c42) |
 
 ## Features
 

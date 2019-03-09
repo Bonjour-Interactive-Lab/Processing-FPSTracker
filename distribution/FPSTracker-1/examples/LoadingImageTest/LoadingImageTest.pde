@@ -1,6 +1,7 @@
 /**
 * this example show performances tracking on a program loading random image at draw
 */
+
 import fpstracker.core.*;
 
 PerfTracker pt;
@@ -20,6 +21,7 @@ void draw() {
   PImage test = loadImage(index+".png");
   
   imageMode(CENTER);
+  tint(0, 0, 255);
   image(test, width/2, height/2, width * 0.75, height * 0.75);
   
   pt.displayOnTopBar("Test program");

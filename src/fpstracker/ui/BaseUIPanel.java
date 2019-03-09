@@ -34,6 +34,12 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 	public void display(PGraphics context, int x, int y) {
 		this.setXY(x, y);
 		context.pushStyle();
+		if(context.isGL()) {
+			context.resetShader();
+		}
+		if(context.tint) {
+			context.noTint();
+		}
 		context.imageMode(CORNER);
 		context.image(this.canvas, x, y);
 		context.popStyle();

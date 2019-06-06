@@ -88,7 +88,7 @@ public class PerfTracker {
 	}
 
 	public void display(PGraphics context, int x, int y) {
-		this.display(this.actualPannel, this.parent.g, x, y);
+		this.display(this.actualPannel, context, x, y);
 	}
 
 	public void display(int pannel, int x, int y) {

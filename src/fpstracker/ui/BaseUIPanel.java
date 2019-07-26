@@ -6,6 +6,7 @@ import fpstracker.utils.MathsUtils;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PGraphics;
+import processing.opengl.PGraphicsOpenGL;
 
 public abstract class BaseUIPanel implements MathsUtils, PConstants{
 	private PApplet parent;
@@ -33,6 +34,7 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 	
 	public void display(PGraphics context, int x, int y) {
 		this.setXY(x, y);
+	
 		context.pushStyle();
 		if(context.isGL()) {
 			context.resetShader();
@@ -40,6 +42,7 @@ public abstract class BaseUIPanel implements MathsUtils, PConstants{
 		if(context.tint) {
 			context.noTint();
 		}
+		
 		context.imageMode(CORNER);
 		context.image(this.canvas, x, y);
 		context.popStyle();

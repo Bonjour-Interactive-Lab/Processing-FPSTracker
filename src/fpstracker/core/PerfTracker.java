@@ -17,9 +17,9 @@ public class PerfTracker {
 	public PerfTracker(PApplet parent, int samplingSize) {
 		this.parent = parent;
 		trackerList = new ArrayList<BaseCustomTracker>();
-		trackerList.add(new FPSTracker(this.parent, samplingSize));
-		trackerList.add(new MillisTracker(this.parent, samplingSize));
-		trackerList.add(new MemoryTracker(this.parent, samplingSize));
+		trackerList.add(new FPSTracker(parent, samplingSize));
+		trackerList.add(new MillisTracker(parent, samplingSize));
+		trackerList.add(new MemoryTracker(parent, samplingSize));
 		this.actualPannel = 0;
 		this.displayAll = false;
 		this.computeUI = true;

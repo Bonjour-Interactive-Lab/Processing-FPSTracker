@@ -25,4 +25,4 @@ P5 library for monitoring performance inspired by [stats.js](https://github.com/
 * Because the tracking run between the main draw() methods the visualizer only display the frame from last computed frame to history n-x. The actual frame will be compute at the and of the draw and add for the next loop.
 
 ## Architecture et Design Pattern
-![Design Pattern](https://gitlab.bonjour-lab.com/alexr4/FPSTracker/raw/master/DesignPattern.png)
+![Design Pattern](https://gitlab.bonjour-lab.com/alexr4/FPSTracker/blob/master/DesignPattern.png)
